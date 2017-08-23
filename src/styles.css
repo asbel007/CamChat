@@ -1,1 +1,9 @@
- @import '~bootstrap/dist/css/bootstrap.min.css';
+/*@import '~bootstrap/dist/css/bootstrap.min.css';*/
+.jumbotron{
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 1px 5px 1px chocolate;
+}
+.navbar-nav .active{
+  border-bottom: 3px solid orange;
+}

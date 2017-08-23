@@ -1,6 +1,7 @@
 <ng-container *ngIf="estudianteEditar; else elseTemplate">
   <admin-edit [estudianteEdicion]=" estudianteEditar" (cerrar)="cerrarEdicion()"></admin-edit>
 </ng-container>
+
 <ng-template #elseTemplate>
   <h3>{{title}}</h3>
 <hr>
