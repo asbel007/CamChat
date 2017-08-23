@@ -1,0 +1,61 @@
+<ng-container *ngIf="estudianteEditar; else elseTemplate">
+  <admin-edit [estudianteEdicion]=" estudianteEditar" (cerrar)="cerrarEdicion()"></admin-edit>
+</ng-container>
+<ng-template #elseTemplate>
+  <h3>{{title}}</h3>
+<hr>
+  <h4>BUSCAR POR: </h4>
+  <div class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Busqueda:" #dato value="Asbel">
+    <select class="selectpicker form-control mr-sm-2" #buscarPor>
+      <option value="">CodigoSis</option>
+      <option value="nombres">Nombres</option>
+      <option value="apellidos">Apellidos</option>
+      <option value="telefono">Telefono</option>
+      <option value="correo">Correo</option>
+      <option value="hora">Hora</option>
+    </select>
+    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onBuscar( dato, buscarPor.value)">BUSCAR</button>
+    <button class="btn btn-outline-warning my-2 my-sm-0"  (click)="onRefrescar()">REFRESCAR</button>
+  </div>
+<hr>
+<hr>
+  <h4>ORDENAR POR: </h4>
+  <div class="form-inline my-2 my-lg-0">
+    <select class="selectpicker form-control mr-sm-2" #OrdenarPor>
+      <option value="nombres">Nombres</option>
+      <option value="apellidos">Apellidos</option>
+      <option value="telefono">Telefono</option>
+      <option value="correo">Correo</option>
+      <option value="hora">Hora</option>
+    </select>
+    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onOrdenar(OrdenarPor.value)" >ORDENAR</button>
+  </div>
+<hr>
+<table class="table table-bordered table-responsive">
+    <thead class="thead-inverse">
+      <th scope="row">Codigo</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th>hora</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes">
+        <td>{{estudiante.codSis}} </td>
+        <td>{{estudiante.nombres}}</td>
+        <td>{{estudiante.apellidos}}</td>
+        <td>{{estudiante.telefono}}</td>
+        <td>{{estudiante.correo}}</td>
+        <td>{{estudiante.hora}}</td>
+        <td><button (click)="onEditar(estudiante)">Editar</button></td>
+        <td><button (click)="onDelete(estudiante.$key)">Eliminar</button></td>
+      </tr>
+    </tbody>
+</table>
+</ng-template>
+
+

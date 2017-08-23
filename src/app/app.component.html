@@ -1,21 +1,9 @@
-  <span>{{title}} </span>
-  <span class=" fill-remaining-space "></span>
-  <span>Firebase </span>
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<!--hr>
+<app-agregar [appAgregar]="ngAgregar" (cerrar)="closeAgregar()"></app-agregar>
+<app-edit [estudianteE]="estudianteEditar" (cerrar)="closeEditar()"></app-edit>
+<hr-->
 
-
-  <table class="table">
-    <thead class="thead-inverse">
-      <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Telefono</th>
-    </thead>
-    <tbody>
-      <tr *ngFor=" let contacto of contactos">
-        <td>{{contacto.nombre}} </td>
-        <td>{{contacto.apellidos}}</td>
-        <td>{{contacto.telefono}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-
+<!--app-detalle [estudianteDetalle]="estudianteDetalle" (cerrar)="cerrarDetalle()"></app-detalle-->
