@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class ProyectoAngularPage {
+export class CamChatPage {
   navigateTo() {
     return browser.get('/');
   }

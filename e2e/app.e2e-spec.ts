@@ -1,10 +1,10 @@
-import { ProyectoAngularPage } from './app.po';
+import { CamChatPage } from './app.po';
 
-describe('proyecto-angular App', () => {
-  let page: ProyectoAngularPage;
+describe('cam-chat App', () => {
+  let page: CamChatPage;
 
   beforeEach(() => {
-    page = new ProyectoAngularPage();
+    page = new CamChatPage();
   });
 
   it('should display welcome message', () => {
