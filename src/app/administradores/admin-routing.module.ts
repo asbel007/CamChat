@@ -1,3 +1,4 @@
+import { GenerarQrComponent } from './generar-qr/generar-qr.component';
 import { NgModule } from '@angular/core';
 import { AgregarComponent } from './agregar/agregar.component';
 import { BuscarComponent } from './buscar/buscar.component';
@@ -14,6 +15,7 @@ const adminRoutes: Routes = [
       { path: '', redirectTo: 'buscar' , pathMatch: 'full' },
       { path: 'buscar', component: BuscarComponent },
       { path: 'agregar', component: AgregarComponent },
+      { path: 'generarqr', component: GenerarQrComponent },
     ]
   },
   {  path: 'admin-main', component: MainComponent }

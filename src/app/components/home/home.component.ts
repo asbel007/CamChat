@@ -1,5 +1,6 @@
 //import { AppComponent } from './../../app.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  onCerrar(){
+  onCerrar() {
     this.cerrar.emit();
   }
 }

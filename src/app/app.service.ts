@@ -1,3 +1,4 @@
+import { and } from '@angular/router/src/utils/collection';
 import { Injectable} from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -9,6 +10,17 @@ export class AppService {
 
   getEstudiantes() {
     this.estudents = this.db.list('/estudiantes') as FirebaseListObservable<any[]>;
+    return this.estudents;
+  }
+
+   getEstudiante(dato: string, campo: string ) {
+    this.estudents = this.db.list('/estudiantes', {
+      query: {
+        orderByChild :  campo ,
+        equalTo: dato,
+        limitToFirst: 1,
+      }
+    }) as FirebaseListObservable<any[]>;
     return this.estudents;
   }
 
@@ -39,8 +51,8 @@ export class AppService {
     this.estudents.push(estudianteAgregar);
   }
 
-  updateEstudiante(clave, estudianteElim) {
-    this.estudents.update(clave, estudianteElim);
+  updateEstudiante(clave, estudianteModificar) {
+    this.estudents.update(clave, estudianteModificar);
   }
 
   deleteEstudiante(clave: string) {

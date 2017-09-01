@@ -1,5 +1,5 @@
+import { AuthService } from './services/auth.service';
 import {AdminModule} from './administradores/admin.module';
-import { AdmiComponent } from './components/admi/admi.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 /*
@@ -21,7 +21,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './app.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
@@ -29,6 +29,8 @@ import { AppComponent } from './app.component';
 /*import { environment } from '../environments/environment';*/
 import { AppRoutingModule } from './app.router';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
   export const firebase = {
     apiKey: 'AIzaSyD3CdifnPi3nlfYDhxwosgCZO4rksG6zAw',
@@ -45,7 +47,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    AdmiComponent,
+    ContactoComponent,
+    UsuarioComponent,
 /*
     EditComponent,
     DetalleComponent,
@@ -61,8 +64,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
+  //  FormsModule,
+  //  ReactiveFormsModule,
     BrowserModule,
     AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
@@ -71,7 +74,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserAnimationsModule*/
   ],
   providers: [
-    AppService
+    AppService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

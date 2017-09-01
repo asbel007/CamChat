@@ -1,10 +1,10 @@
-<h4> {{title}} </h4>
 <div class="container-fluid">
   <div class="row">
     <nav class="nav  nav-pills col-sm-3 col-md-2 flex-sm-row flex-md-column d-sm-block">
+      <a class="nav-link disabled" >Admin</a>
       <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['buscar']">Buscar</a>
       <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['agregar']" >Agregar</a>
-      <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['editar']" >Editar</a>
+      <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['generarqr']" >QRCode</a>
     </nav>
     <main class="col-sm-9 col-md-10 ml-sm-auto pt-3" role="main">
       <router-outlet></router-outlet>

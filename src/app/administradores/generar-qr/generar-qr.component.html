@@ -1,0 +1,12 @@
+
+<div class="container justify-content-center">
+	<form novalidate [formGroup]="">
+		<input type="text" name="msg" [value]="codigo" onkeyup="actualizar_qrcode(msg)">
+		<input type="button"class="btn btn-primary" value="GeneratorQR" onclick="update_qrcode()">
+    <!--input type="button" value="GenerarQR" onclick="actualizar_qrcode(msg)"-->
+    <button type="button" class="btn btn-danger" (click)="onCancelar()">Cerrar</button>
+	</form>
+<div id="qr" class="d-flex justify-content-center "></div>
+</div>
+
+

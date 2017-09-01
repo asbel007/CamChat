@@ -1,0 +1,14 @@
+<div class="container" *ngIf="detalle">
+  <h2> Detalle del estudiante</h2>
+  <hr>
+  <div class="content">
+    <strong>Codigo: </strong> {{detalle.codSis}} <br>
+    <strong>Nombre: </strong> {{detalle.nombres}} <br>
+    <strong>Apellidos:</strong> {{detalle.apellidos}} <br>
+    <strong>Telefono</strong> {{detalle.telefono}} <br>
+    <strong>Correo: </strong> {{detalle.correo}} <br>
+    <strong>Hora:   </strong> {{detalle.hora}} <br>
+    <strong>codec:  </strong> {{detalle.codec}} <br>
+    <button type="button" class="btn btn-info" (click)="onVolver()"> Volver </button>
+  </div>
+</div>

@@ -72,4 +72,9 @@ export class AppComponent implements OnInit {
   closeAgregar() {
     this.ngAgregar = null;
   }
+  actualizar_qrcode() {
+    const text = document.forms[0].elements['msg'].value.replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+    document.getElementById('qr').innerHTML = text; /*create_qrcode(text);*/
+  }
+
 }

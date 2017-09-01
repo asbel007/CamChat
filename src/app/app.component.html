@@ -1,6 +1,14 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+
+  <!--script>
+    let update_qrcode = function() {
+    let text = document.forms[0].elements['msg'].value.replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+    document.getElementById('qr').innerHTML = create_qrcode(text);
+    };
+  </script-->
+
 <!--hr>
 <app-agregar [appAgregar]="ngAgregar" (cerrar)="closeAgregar()"></app-agregar>
 <app-edit [estudianteE]="estudianteEditar" (cerrar)="closeEditar()"></app-edit>

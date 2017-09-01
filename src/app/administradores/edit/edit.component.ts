@@ -19,6 +19,7 @@ export class EditComponent implements OnInit {
     if (valor) {
       this.estudianteOriginal = valor;
       this.formulario.patchValue({
+        codSis: valor.codSis,
         nombres: valor.nombres,
         apellidos: valor.apellidos,
         telefono: valor.telefono,
@@ -33,11 +34,12 @@ export class EditComponent implements OnInit {
   constructor(private servicio: AppService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.crearFormulario();
+    /*this.crearFormulario();*/
   }
 
   crearFormulario() {
     this.formulario = this.fb.group({
+      codSis: '',
       nombres: '',
       apellidos: '',
       correo: '',
@@ -47,6 +49,7 @@ export class EditComponent implements OnInit {
   }
 
   onGuardar() {
+    console.log(this.formulario.value)
     this.servicio.updateEstudiante(this.estudianteOriginal.$key, this.formulario.value);
     this.onCancelar();
   }

@@ -1,37 +1,35 @@
-
-<h3>Agregar</h3>
-<!--div class="container" *ngIf="appAgregar">
+<div class="container"> <!--*ngIf="appAgregar"-->
   <h2>Agregar Estudiante</h2>
   <div class="container">
     <form novalidate [formGroup]="formulario" (ngSubmit)= "onGuardar()">
       <div class="form-group row ">
         <label class="col-2 col-form-label">Codigo</label>
         <div class="col-10">
-          <input class="form-control" type="text" required>
+          <input class="form-control" type="text" formControlName="codSis" placeholder="201201181" required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-2 col-form-label">Nombres</label>
         <div class="col-10">
-          <input class="form-control" type="text" formControlName="nombres" required>
+          <input class="form-control" type="text" formControlName="nombres" placeholder="Mi_Nombre" required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-2 col-form-label">Apellidos</label>
         <div class="col-10">
-          <input class="form-control" type="text" formControlName="apellidos" required>
+          <input class="form-control" type="text" formControlName="apellidos"placeholder="Mi_Apellido" required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-2 col-form-label">Correo</label>
         <div class="col-10">
-          <input class="form-control" type="email"  formControlName="correo" required>
+          <input class="form-control" type="email"  formControlName="correo" placeholder="example@example.com" required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-2 col-form-label">Telefono</label>
         <div class="col-10">
-          <input class="form-control" type="tel" formControlName="telefono" required>
+          <input class="form-control" type="tel" formControlName="telefono" placeholder="7894561" required>
         </div>
       </div>
       <div class="form-group row">
@@ -44,9 +42,11 @@
       <div class="form-group row">
         <div class="btn-group mr-2" role="group" aria-label="Second group">
           <button type="submit" class="btn btn-success">Agregar</button>
-          <button class="btn btn-danger" (click)="onCerrar()">Cerrar</button>
+          <!--button type="button" class="btn btn-danger" (click)="onCerrar()">Cerrar</button-->
         </div>
       </div>
     </form>
   </div>
-</div-->
+</div>
+
+<!--button type="submit" class="btn btn-primary" (click)="addEstudiante(nombres.value, apellidos.value, telefono.value, correo.value, hora.value)" disabled>Agregar</button-->
