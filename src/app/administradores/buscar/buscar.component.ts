@@ -14,15 +14,24 @@ export class BuscarComponent implements OnInit {
   estudianteEditar= null;
   estudianteDetalle= null;
   clave= null;
+  logins= false;
+  userAdmi: string;
+  passAdmi: string;
 
   @Input() estudianteB: any = null
-
   @Output() cerrar = new EventEmitter();
 
-  constructor( private servicio: AppService) { }
+  constructor( private servicio: AppService) {
+    console.log(this.userAdmi)
+  }
 
   ngOnInit() {
+    /*TIENES QUE CORREGIR ESTA SITUACION */
     this.onRefrescar();
+    if (localStorage.getItem('userAdmi') === 'admi' && localStorage.getItem('passAdmi') === '1234') {
+      this.logins = true;
+      console.log(localStorage.getItem('userAdmi'))
+    }
   }
 
   onBuscar(dato: string, campo: string) {
@@ -80,5 +89,26 @@ export class BuscarComponent implements OnInit {
   cerrarQR() {
     this.clave = null;
     this.componentOpen = true;
+  }
+
+  ingresar(user: string, pass: string) {
+    if (user === 'admi' && pass === '1234') {
+      this.logins = true;
+      this.userAdmi = user;
+      this.passAdmi = pass;
+      localStorage.setItem('userAdmi', this.userAdmi);
+      localStorage.setItem('passAdmi', this.passAdmi);
+      console.log(localStorage.getItem('userAdmi'))
+    }else {
+      alert('Datos invalidos');
+    }
+  }
+  salir() {
+      this.logins = false;
+      this.userAdmi = null;
+      this.passAdmi = null;
+      localStorage.setItem('userAdmi', this.userAdmi);
+      localStorage.setItem('passAdmi', this.passAdmi);
+
   }
 }

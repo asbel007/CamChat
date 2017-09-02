@@ -1,12 +1,22 @@
-<ng-container *ngIf="componentOpen; then thenTemplate; else elseTemplate"></ng-container>
+<ng-container *ngIf="logins; else loginTemplate">
 
-<ng-template #thenTemplate>
-  <h3>{{title}}</h3>
-  <hr>
-  <h4>BUSCAR POR: </h4>
-  <div class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" placeholder="Busqueda:" #dato value="Asbel">
-    <select class="selectpicker form-control mr-sm-2" #buscarPor>
+  <ng-container *ngIf="componentOpen; then thenTemplate; else elseTemplate"></ng-container>
+
+  <ng-template #thenTemplate>
+    <div class="row justify-content-between">
+    <div class="col-9">
+      <h3>{{title}}</h3>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="salir()">Salir</button>
+    </div>
+  </div>
+
+    <hr>
+    <h4>BUSCAR POR: </h4>
+    <div class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Busqueda:" #dato value="Asbel">
+      <select class="selectpicker form-control mr-sm-2" #buscarPor>
       <option value="">CodigoSis</option>
       <option value="nombres">Nombres</option>
       <option value="apellidos">Apellidos</option>
@@ -14,59 +24,69 @@
       <option value="correo">Correo</option>
       <option value="hora">Hora</option>
     </select>
-    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onBuscar( dato, buscarPor.value)">BUSCAR</button>
-    <button class="btn btn-outline-warning my-2 my-sm-0" (click)="onRefrescar()">REFRESCAR</button>
-  </div>
-  <hr>
-  <hr>
-  <h4>ORDENAR POR: </h4>
-  <div class="form-inline my-2 my-lg-0">
-    <select class="selectpicker form-control mr-sm-2" #OrdenarPor>
+      <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onBuscar( dato, buscarPor.value)">BUSCAR</button>
+      <button class="btn btn-outline-warning my-2 my-sm-0" (click)="onRefrescar()">REFRESCAR</button>
+    </div>
+    <hr>
+    <hr>
+    <h4>ORDENAR POR: </h4>
+    <div class="form-inline my-2 my-lg-0">
+      <select class="selectpicker form-control mr-sm-2" #OrdenarPor>
       <option value="nombres">Nombres</option>
       <option value="apellidos">Apellidos</option>
       <option value="telefono">Telefono</option>
       <option value="correo">Correo</option>
       <option value="hora">Hora</option>
     </select>
-    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onOrdenar(OrdenarPor.value)">ORDENAR</button>
-  </div>
-  <hr>
-  <div class="width='10' height='10'">
-    <table class="table table-hover table-bordered table-responsive table-striped table-sm">
-      <thead class="thead-inverse">
-        <th scope="row">Codigo</th>
-        <th>Nombres</th>
-        <th>Detalles</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-        <th>Ver QR</th>
-
-      </thead>
-      <tbody>
-        <tr *ngFor="let estudiante of estudiantes">
-          <td>{{estudiante.codSis}} </td>
-          <td>{{estudiante.nombres}}</td>
-          <td><button (click)="onDetalle(estudiante)">Detalle</button></td>
-          <td><button (click)="onEditar(estudiante)">Editar</button></td>
-          <td><button (click)="onDelete(estudiante.$key)">Eliminar</button></td>
-          <td><button (click)="onQR(estudiante.$key)"> QR</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</ng-template>
-
-<ng-template #elseTemplate>
-  <ng-container *ngIf="clave">
-    <div class="container">
-      <app-generar-qr [fclave]="clave" (cerrar)="cerrarQR()"></app-generar-qr>
+      <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onOrdenar(OrdenarPor.value)">ORDENAR</button>
     </div>
-  </ng-container>
+    <hr>
+    <div class="tabla">
+      <table class="table table-hover table-bordered table-responsive table-striped table-sm">
+        <thead class="thead-inverse">
+          <th scope="row">Codigo</th>
+          <th>Nombres</th>
+          <th>Detalles</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+          <th>Ver QR</th>
 
-  <ng-container *ngIf="estudianteEditar">
-    <admin-edit [estudianteEdicion]=" estudianteEditar" (cerrar)="cerrarEdicion()"></admin-edit>
-  </ng-container>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estudiante of estudiantes">
+            <td>{{estudiante.codSis}} </td>
+            <td>{{estudiante.nombres}}</td>
+            <td><button (click)="onDetalle(estudiante)">Detalle</button></td>
+            <td><button (click)="onEditar(estudiante)">Editar</button></td>
+            <td><button (click)="onDelete(estudiante.$key)">Eliminar</button></td>
+            <td><button (click)="onQR(estudiante.$key)"> QR</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
 
-  <app-detalle [detalle]="estudianteDetalle" (cerrar)="cerrarDetalle()"></app-detalle>
+  <ng-template #elseTemplate>
+    <ng-container *ngIf="clave">
+      <div class="container">
+        <app-generar-qr [fclave]="clave" (cerrar)="cerrarQR()"></app-generar-qr>
+      </div>
+    </ng-container>
 
+    <ng-container *ngIf="estudianteEditar">
+      <admin-edit [estudianteEdicion]=" estudianteEditar" (cerrar)="cerrarEdicion()"></admin-edit>
+    </ng-container>
+
+    <app-detalle [detalle]="estudianteDetalle" (cerrar)="cerrarDetalle()"></app-detalle>
+
+  </ng-template>
+
+</ng-container>
+
+<ng-template #loginTemplate>
+  <div class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Administrador"  #admiU >
+    <input class="form-control mr-sm-2" type="password" placeholder="Contraseña" #admiP>
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="ingresar(admiU.value, admiP.value)">Ingresar</button>
+  </div>
 </ng-template>

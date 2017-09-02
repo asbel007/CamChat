@@ -10,9 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class UsuarioComponent implements OnInit {
   estudiant: any;
   estudiante= null;
-  constructor( private servicio: AppService, public auth: AuthService) {
-    auth.handleAuthentication();
-   }
+  constructor( private servicio: AppService, public auth: AuthService) {}
   ngOnInit() { }
 
   onIngresar(dato: string, pass2: string ) {
@@ -36,9 +34,7 @@ export class UsuarioComponent implements OnInit {
         */
     }
   }
-  login() {
-    this.auth.login();
-  }
+
   salir() {
     this.auth.logout();
   }

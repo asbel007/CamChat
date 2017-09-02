@@ -1,0 +1,9 @@
+<div class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="text" placeholder="usuario:" #dato value="">
+  <input class="form-control mr-sm-2" type="text" placeholder="pass:" #pass1 value="">
+ <button type="button" class="btn btn-outline-primary my-2 my-sm-0" *ngIf="!auth.isAuthenticated()" (click)="login()">Ingresar</button>
+  <button type="button" class="btn btn-outline-primary my-2 my-sm-0" *ngIf="auth.isAuthenticated()" (click)="salir()">Salir</button>
+</div>
+<div *ngFor="let estudiante of estudiant">
+  {{estudiante|json}}
+</div>

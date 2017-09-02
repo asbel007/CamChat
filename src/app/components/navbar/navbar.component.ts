@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NavbarComponent implements OnInit {
-title= 'Notail';
-  constructor() { }
+  title= 'Notail';
+  constructor( public auth: AuthService) {
+    auth.handleAuthentication();
+  }
 
   ngOnInit() {
   }

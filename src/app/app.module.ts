@@ -1,3 +1,4 @@
+import { AuthguardService } from './services/authguard.service';
 import { AuthService } from './services/auth.service';
 import {AdminModule} from './administradores/admin.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -31,6 +32,7 @@ import { AppRoutingModule } from './app.router';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { LoginComponent } from './components/login/login.component';
 
   export const firebase = {
     apiKey: 'AIzaSyD3CdifnPi3nlfYDhxwosgCZO4rksG6zAw',
@@ -49,6 +51,7 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     FooterComponent,
     ContactoComponent,
     UsuarioComponent,
+    LoginComponent,
 /*
     EditComponent,
     DetalleComponent,
@@ -75,7 +78,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
   ],
   providers: [
     AppService,
-    AuthService
+    AuthService,
+    AuthguardService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,20 +1,21 @@
 <div class="container-fluid">
   <div class="row">
     <nav class="nav  nav-pills col-sm-3 col-md-2 flex-sm-row flex-md-column d-sm-block">
-      <a class="nav-link disabled">Admin</a>
-      <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['usuario']">Usuario</a>
+      <a class="nav-link disabled">Estudiante</a>
+      <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'/usuario'">Usuario</a>
       <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['generarqr']">QRCode</a>
+      <button type="button" class="btn btn-outline-primary" *ngIf="auth.isAuthenticated()" (click)="salir()"> .  Salir  . </button>
     </nav>
 
     <div class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" placeholder="usuario:" #dato value="">
-    <input class="form-control mr-sm-2" type="text" placeholder="pass:" #pass1 value="">
-    <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onIngresar(dato.value, pass1.value)">Ingresarno Hacer CLick</button>
-    <button type="button" class="btn btn-outline-primary my-2 my-sm-0" *ngIf="!auth.isAuthenticated()" (click)="login()">Ingresar</button>
-    <button type="button" class="btn btn-outline-primary my-2 my-sm-0" *ngIf="auth.isAuthenticated()" (click)="salir()">Salir</button>
+      <input class="form-control mr-sm-2" type="text" placeholder="usuario:" #dato value="">
+      <input class="form-control mr-sm-2" type="text" placeholder="pass:" #pass1 value="">
+      <button class="btn btn-outline-primary my-2 my-sm-0" (click)="onIngresar(dato.value, pass1.value)">Ingresarno Hacer CLick</button>
+    </div>
+    <div *ngFor="let estudiante of estudiant">
+      {{estudiante|json}}
+    </div>
+    <router-outlet></router-outlet>
   </div>
-      <div *ngFor="let estudiante of estudiant">
-        {{estudiante|json}}
-       </div>
-  </div>
+
 </div>
